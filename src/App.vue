@@ -21,9 +21,9 @@ export default {
       .get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
       .then((response) => {
 
-        this.cards = response.data.data.slice(0, 20);
+        this.cards = response.data.data.slice(0, 10);
         console.log(response)
-        console.log(response.data.data.slice(0, 20));
+        console.log(response.data.data.slice(0, 10));
         //console.log(this.cards)
       })
   }

@@ -17,7 +17,7 @@ export default {
                 {{ card.name }}
             </h4>
             <p>
-                Alien
+                {{ card.archetype }}
             </p>
         </div>
     </div>

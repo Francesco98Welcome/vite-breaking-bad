@@ -19,13 +19,14 @@ export default {
 <template>
     <main>
         <select name="" id="">
-            <option value="bo">Alien</option>
-            <option value="bo">e</option>
-            <option value="bo">e</option>
+            <option selected>Seleziona</option>
+            <option value="alien">Alien</option>
+            <option value="noble knight">Noble Knight</option>
+            <option value="meloudis">Meloudis</option>
         </select>
         <div class="containerCard">
             <div class="blackFound">
-                Found 39 cards
+                Found {{ cardsList.length }} cards
             </div>
             <div class="cards">
                 <div v-for="card in cardsList">
@@ -59,7 +60,7 @@ main {
             background-color: black;
             height: 50px;
             color: white;
-            padding: 15px;
+            padding: 16px;
             width: 98%;
             margin: 0 auto;
         }
