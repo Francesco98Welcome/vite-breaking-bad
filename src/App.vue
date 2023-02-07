@@ -2,6 +2,7 @@
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import { store } from './store.js';
 
 export default {
   name: 'App',
@@ -12,11 +13,15 @@ export default {
 
   data() {
     return {
-      cards: []
+      cards: [],
+      choose: 'Alien',
+      url: '',
+      store
     }
   },
 
-  mounted() {
+  created() {
+    /*
     axios
       .get('https://db.ygoprodeck.com/api/v7/cardinfo.php')
       .then((response) => {
@@ -26,6 +31,15 @@ export default {
         console.log(response.data.data.slice(0, 10));
         //console.log(this.cards)
       })
+      */
+    this.url = "https://db.ygoprodeck.com/api/v7/cardinfo.php";
+    this.store.loading = true;
+    axios
+      .get(this.url)
+      .then((response) => {
+        this.store.card = response.data.data.slice(0, 20);
+        this.store.loading = false;
+      });
   }
 }
 </script>
@@ -33,7 +47,7 @@ export default {
 <template>
   <AppHeader />
 
-  <AppMain :cardsList="cards" />
+  <AppMain />
 </template>
 
 <style lang="scss">
