@@ -32,15 +32,12 @@ export default {
                 });
         },
 
-        props: {
-            cardsList: {
-                type: Array,
-                default: []
-            }
-        },
-        /* components: {
-             cardYuGiOh
-         }*/
+        /*        props: {
+                    cardsList: {
+                        type: Array,
+                        default: []
+                    }
+                },*/
     }
 }
 </script>
@@ -65,8 +62,6 @@ export default {
             </div>
             <div class="cards">
                 <div v-for="card in store.card">
-                    <!-- {{ card.name }} -->
-                    <!--<cardYuGiOh :card="store.card" />-->
                     <div>
                         <div>
                             <img :src="card.card_images[0].image_url" alt="">
