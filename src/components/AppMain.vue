@@ -47,25 +47,12 @@ export default {
                     this.store.loading = false;
                 });
         },
-
-        /*        props: {
-                    cardsList: {
-                        type: Array,
-                        default: []
-                    }
-                },*/
     }
 }
 </script>
 
 <template>
-    <main><!--
-        <select name="" id="">
-            <option selected>Seleziona</option>
-            <option value="alien">Alien</option>
-            <option value="noble knight">Noble Knight</option>
-            <option value="meloudis">Meloudis</option>
-        </select>-->
+    <main>
         <select v-model="optionsSelect" @change="onChoise">
             <option selected value="scegli">Seleziona</option>
             <option v-for="archetype in archetypes" :value="archetype.archetype_name">
