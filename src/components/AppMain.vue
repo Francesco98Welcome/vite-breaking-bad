@@ -11,16 +11,32 @@ export default {
             store
         }
     },
+    
+    // Quando l'oggetto Vue viene creato, imposta il flag di caricamento nello store Vuex a true
+    
     created() {
         this.store.loading = true;
         //this.url = "https://db.ygoprodeck.com/api/v7/archetypes.php"
+        
+        // Effettua una chiamata GET all'API esterna per recuperare gli archetipi
+        
         axios
             .get("https://db.ygoprodeck.com/api/v7/archetypes.php")
             .then((response) => {
+            
+                // Una volta ottenuti i dati dall'API, assegna l'array di archetipi alla proprietà "archetypes"
+                // dell'oggetto Vue. Infine, imposta il flag di caricamento nello store Vuex a false
                 this.archetypes = response.data
                 this.store.loading = false;
             });
     },
+    
+    // Questa computed property è utilizzata per effettuare una chiamata AJAX ogni volta che l'utente seleziona
+    // un archetipo dall'elemento <select> nel template Vue. La funzione setta il flag di caricamento
+    // nello store Vuex a true, e fa una chiamata GET all'API esterna passando l'archetipo selezionato come parametro.
+    // Una volta ottenuti i dati dall'API, assegna i dati alla proprietà "card" nello store Vuex e imposta
+    // il flag di caricamento a false.
+    
     computed: {
         onChoise() {
             this.store.loading = true;
